@@ -40,9 +40,9 @@ class Api::BaseController < ApplicationController
     render json: { error: 'This action is not allowed' }, status: 403
   end
 
-  rescue_from Mastodon::RaceConditionError, Seahorse::Client::NetworkingError, Stoplight::Error::RedLight do
-    render json: { error: 'There was a temporary problem serving your request, please try again' }, status: 503
-  end
+  #rescue_from Mastodon::RaceConditionError, Seahorse::Client::NetworkingError, Stoplight::Error::RedLight do
+  #  render json: { error: 'There was a temporary problem serving your request, please try again' }, status: 503
+  #end
 
   rescue_from Mastodon::RateLimitExceededError do
     render json: { error: I18n.t('errors.429') }, status: 429
