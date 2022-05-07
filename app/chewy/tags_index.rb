@@ -4,7 +4,7 @@ class TagsIndex < Chewy::Index
   settings index: { refresh_interval: '15m' }, analysis: {
     analyzer: {
       content: {
-        tokenizer: 'keyword',
+        tokenizer: 'ik_smart',
         filter: %w(lowercase asciifolding cjk_width),
       },
 
