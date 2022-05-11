@@ -96,7 +96,7 @@ class Rack::Attack
     req.remote_ip if req.post? && req.path == '/auth/password'
   end
 
-  throttle('throttle_password_resets/email', limit: 2, period: 120.minutes) do |req|
+  throttle('throttle_password_resets/email', limit: 3, period: 120.minutes) do |req|
     req.params.dig('user', 'email').presence if req.post? && req.path == '/auth/password'
   end
 
@@ -104,7 +104,7 @@ class Rack::Attack
     req.remote_ip if req.post? && %w(/auth/confirmation /api/v1/emails/confirmations).include?(req.path)
   end
 
-  throttle('throttle_email_confirmations/email', limit: 2, period: 120.minutes) do |req|
+  throttle('throttle_email_confirmations/email', limit: 3, period: 120.minutes) do |req|
     if req.post? && req.path == '/auth/password'
       req.params.dig('user', 'email').presence
     elsif req.post? && req.path == '/api/v1/emails/confirmations'
