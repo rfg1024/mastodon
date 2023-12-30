@@ -13,46 +13,51 @@ class NotificationMailer < ApplicationMailer
   default to: -> { email_address_with_name(@user.email, @me.username) }
 
   def mention
-    return unless @user.functional? && @status.present?
+    #return unless @user.functional? && @status.present?
 
-    locale_for_account(@me) do
-      thread_by_conversation(@status.conversation)
-      mail subject: default_i18n_subject(name: @status.account.acct)
-    end
+    #locale_for_account(@me) do
+    #  thread_by_conversation(@status.conversation)
+    #  mail subject: default_i18n_subject(name: @status.account.acct)
+    #end
+    return
   end
 
   def follow
-    return unless @user.functional?
+    #return unless @user.functional?
 
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    #locale_for_account(@me) do
+    #  mail subject: default_i18n_subject(name: @account.acct)
+    #end
+    return
   end
 
   def favourite
-    return unless @user.functional? && @status.present?
+    #return unless @user.functional? && @status.present?
 
-    locale_for_account(@me) do
-      thread_by_conversation(@status.conversation)
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    #locale_for_account(@me) do
+    #  thread_by_conversation(@status.conversation)
+    #  mail subject: default_i18n_subject(name: @account.acct)
+    #end
+    return
   end
 
   def reblog
-    return unless @user.functional? && @status.present?
+    #return unless @user.functional? && @status.present?
 
-    locale_for_account(@me) do
-      thread_by_conversation(@status.conversation)
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    #locale_for_account(@me) do
+    #  thread_by_conversation(@status.conversation)
+    #  mail subject: default_i18n_subject(name: @account.acct)
+    #end
+    return
   end
 
   def follow_request
-    return unless @user.functional?
+    #return unless @user.functional?
 
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    #locale_for_account(@me) do
+    #  mail subject: default_i18n_subject(name: @account.acct)
+    #end
+    return
   end
 
   private
