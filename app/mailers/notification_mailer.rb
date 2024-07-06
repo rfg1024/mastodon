@@ -19,7 +19,7 @@ class NotificationMailer < ApplicationMailer
     #   thread_by_conversation(@status.conversation)
     #   mail subject: default_i18n_subject(name: @status.account.acct)
     # end
-    return
+    # return
   end
 
   def follow
@@ -28,7 +28,7 @@ class NotificationMailer < ApplicationMailer
     # locale_for_account(@me) do
     #   mail subject: default_i18n_subject(name: @account.acct)
     # end
-    return
+    # return
   end
 
   def favourite
@@ -38,7 +38,7 @@ class NotificationMailer < ApplicationMailer
     #   thread_by_conversation(@status.conversation)
     #   mail subject: default_i18n_subject(name: @account.acct)
     # end
-    return
+    # return
   end
 
   def reblog
@@ -48,7 +48,7 @@ class NotificationMailer < ApplicationMailer
     #   thread_by_conversation(@status.conversation)
     #   mail subject: default_i18n_subject(name: @account.acct)
     # end
-    return
+    # return
   end
 
   def follow_request
@@ -57,7 +57,7 @@ class NotificationMailer < ApplicationMailer
     # locale_for_account(@me) do
     #   mail subject: default_i18n_subject(name: @account.acct)
     # end
-    return
+    # return
   end
 
   private
