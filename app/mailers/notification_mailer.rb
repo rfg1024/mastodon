@@ -20,39 +20,39 @@ class NotificationMailer < ApplicationMailer
   layout 'mailer'
 
   def mention
-    return if @status.blank?
+    # return if @status.blank?
 
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @status.account.acct)
-    end
+    # locale_for_account(@me) do
+    #   mail subject: default_i18n_subject(name: @status.account.acct)
+    # end
   end
 
   def follow
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    # locale_for_account(@me) do
+    #  mail subject: default_i18n_subject(name: @account.acct)
+    # end
   end
 
   def favourite
-    return if @status.blank?
+    # return if @status.blank?
 
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    # locale_for_account(@me) do
+    #   mail subject: default_i18n_subject(name: @account.acct)
+    # end
   end
 
   def reblog
-    return if @status.blank?
+    # return if @status.blank?
 
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    # locale_for_account(@me) do
+    #  mail subject: default_i18n_subject(name: @account.acct)
+    # end
   end
 
   def follow_request
-    locale_for_account(@me) do
-      mail subject: default_i18n_subject(name: @account.acct)
-    end
+    # locale_for_account(@me) do
+    #   mail subject: default_i18n_subject(name: @account.acct)
+    # end
   end
 
   private
