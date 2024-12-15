@@ -70,7 +70,7 @@ class Rack::Attack
     req.authenticated_user_id if req.api_request?
   end
 
-  throttle('throttle_per_token_api', limit: 300, period: 5.minutes) do |req|
+  throttle('throttle_per_token_api', limit: 60, period: 5.minutes) do |req|
     req.authenticated_token_id if req.api_request?
   end
 
@@ -109,15 +109,15 @@ class Rack::Attack
     req.throttleable_remote_ip if req.post? && req.path == '/api/v1/apps'
   end
 
-  throttle('throttle_sign_up_attempts/ip', limit: 25, period: 5.minutes) do |req|
+  throttle('throttle_sign_up_attempts/ip', limit: 25, period: 25.minutes) do |req|
     req.throttleable_remote_ip if req.post? && req.path_matches?('/auth')
   end
 
-  throttle('throttle_password_resets/ip', limit: 25, period: 5.minutes) do |req|
+  throttle('throttle_password_resets/ip', limit: 25, period: 25.minutes) do |req|
     req.throttleable_remote_ip if req.post? && req.path_matches?('/auth/password')
   end
 
-  throttle('throttle_password_resets/email', limit: 5, period: 30.minutes) do |req|
+  throttle('throttle_password_resets/email', limit: 5, period: 120.minutes) do |req|
     req.params.dig('user', 'email').presence if req.post? && req.path_matches?('/auth/password')
   end
 
