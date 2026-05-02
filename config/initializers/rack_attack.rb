@@ -109,19 +109,19 @@ class Rack::Attack
     req.throttleable_remote_ip if req.post? && req.path == '/api/v1/apps'
   end
 
-  throttle('throttle_sign_up_attempts/ip', limit: 25, period: 5.minutes) do |req|
+  throttle('throttle_sign_up_attempts/ip', limit: 2, period: 5.minutes) do |req|
     req.throttleable_remote_ip if req.post? && req.path_matches?('/auth')
   end
 
-  throttle('throttle_password_resets/ip', limit: 25, period: 5.minutes) do |req|
+  throttle('throttle_password_resets/ip', limit: 2, period: 5.minutes) do |req|
     req.throttleable_remote_ip if req.post? && req.path_matches?('/auth/password')
   end
 
-  throttle('throttle_password_resets/email', limit: 5, period: 30.minutes) do |req|
+  throttle('throttle_password_resets/email', limit: 5, period: 300.minutes) do |req|
     req.params.dig('user', 'email').presence if req.post? && req.path_matches?('/auth/password')
   end
 
-  throttle('throttle_email_confirmations/ip', limit: 25, period: 5.minutes) do |req|
+  throttle('throttle_email_confirmations/ip', limit: 2, period: 5.minutes) do |req|
     req.throttleable_remote_ip if (req.post? && (req.path_matches?('/auth/confirmation') || req.path == '/api/v1/emails/confirmations')) || ((req.put? || req.patch?) && req.path_matches?('/auth/setup'))
   end
 
