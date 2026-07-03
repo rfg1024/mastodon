@@ -24,27 +24,27 @@ class NotificationMailer < ApplicationMailer
   layout 'mailer'
 
   def mention
-    mail subject: default_i18n_subject(name: @status.account.acct)
+  #  mail subject: default_i18n_subject(name: @status.account.acct)
   end
 
   def quote
-    mail subject: default_i18n_subject(name: @status.account.acct)
+  #  mail subject: default_i18n_subject(name: @status.account.acct)
   end
 
   def follow
-    mail subject: default_i18n_subject(name: @account.acct)
+  #  mail subject: default_i18n_subject(name: @account.acct)
   end
 
   def favourite
-    mail subject: default_i18n_subject(name: @account.acct)
+  #  mail subject: default_i18n_subject(name: @account.acct)
   end
 
   def reblog
-    mail subject: default_i18n_subject(name: @account.acct)
+  #  mail subject: default_i18n_subject(name: @account.acct)
   end
 
   def follow_request
-    mail subject: default_i18n_subject(name: @account.acct)
+  #  mail subject: default_i18n_subject(name: @account.acct)
   end
 
   private
